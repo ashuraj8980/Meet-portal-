@@ -93,12 +93,11 @@
                 <div>
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">WhatsApp Number</label>
                     <input type="tel" id="phone" required pattern="[6789][0-9]{9}" maxlength="10" placeholder="10 Digit Number" class="input-box">
-                    <p class="text-[9px] text-slate-400 mt-1">*Enter 10-digit number starting with 6, 7, 8 or 9</p>
                 </div>
 
                 <div id="charge-box" class="hidden bg-blue-50 border border-blue-100 p-4 rounded-xl mt-4">
                     <div class="flex items-start gap-3">
-                        <input type="checkbox" id="pay_agree" required class="mt-1 w-4 h-4 text-blue-600">
+                        <input type="checkbox" id="pay_agree" class="mt-1 w-4 h-4 text-blue-600">
                         <label for="pay_agree" class="text-[11px] font-bold text-blue-800 leading-tight">
                             I agree to pay <span class="text-sm">₹399/-</span> for Profile Selection & Appointment Fee. No profiles will be shown without this fee.
                         </label>
@@ -159,14 +158,28 @@
         document.getElementById('masterForm').onsubmit = function(e) {
             e.preventDefault();
             
-            // Validation check
+            // Check Age
+            const ageInput = document.getElementById('age');
+            if(ageInput && ageInput.value < 18) {
+                alert("Alert: Under 18 are not allowed. Please enter correct age.");
+                return;
+            }
+
+            // Check Fee Agreement
+            const payAgree = document.getElementById('pay_agree');
+            const chargeBox = document.getElementById('charge-box');
+            if(!chargeBox.classList.contains('hidden') && !payAgree.checked) {
+                alert("Privacy Warning: Profiles and personal details cannot be shared without accepting the mandatory Appointment Fee (₹399). This is strictly for privacy concern.");
+                return;
+            }
+
             const phone = document.getElementById('phone').value;
             if(!/^[6-9][0-9]{9}$/.test(phone)) {
                 alert("Please enter a valid 10-digit mobile number.");
                 return;
             }
 
-            let message = `*🛡️ REAL-MEET SECURE BOOKING*%0A`;
+            let message = `*🛡️ REAL-MEET APPOINTMENT APPROVAL REQUEST*%0A`;
             message += `==========================%0A`;
             message += `*Service:* ${service.toUpperCase()}%0A`;
             message += `*Ref ID:* RM-${Math.floor(1000 + Math.random() * 9000)}%0A`;
