@@ -53,12 +53,37 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">State</label>
                         <select id="state" required class="input-box">
                             <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
                             <option value="Delhi">Delhi</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
                             <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
                             <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Jammu & Kashmir">Jammu & Kashmir</option>
                         </select>
                     </div>
                     <div>
@@ -98,7 +123,6 @@
         const service = localStorage.getItem('selected_service') || 'Real Meet';
         const gender = localStorage.getItem('user_identity') || 'Male';
 
-        // 1. Initialize Page Content
         window.onload = function() {
             document.getElementById('form-title').innerText = service;
             const dynamicArea = document.getElementById('dynamic-fields');
@@ -127,7 +151,6 @@
                     </div>
                 `;
             } else {
-                // Job Form Fields
                 dynamicArea.innerHTML = `
                     <div>
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Experience Level</label>
@@ -151,36 +174,38 @@
             }
         };
 
-        // 2. WhatsApp Integration Logic
         document.getElementById('masterForm').onsubmit = function(e) {
             e.preventDefault();
             
-            let message = `*--- NEW ${service.toUpperCase()} REQUEST ---*%0A%0A`;
-            message += `*Name:* ${document.getElementById('name').value}%0A`;
-            message += `*Gender:* ${gender}%0A`;
-            message += `*State:* ${document.getElementById('state').value}%0A`;
-            message += `*City:* ${document.getElementById('city').value}%0A`;
-            message += `*Phone:* ${document.getElementById('phone').value}%0A`;
+            let message = `*🛡️ REAL-MEET SECURE BOOKING*%0A`;
+            message += `==========================%0A`;
+            message += `*Service:* ${service.toUpperCase()}%0A`;
+            message += `*Ref ID:* RM-${Math.floor(1000 + Math.random() * 9000)}%0A`;
+            message += `==========================%0A%0A`;
+            message += `👤 *Client Name:* ${document.getElementById('name').value}%0A`;
+            message += `⚧ *Gender:* ${gender}%0A`;
+            message += `📍 *Location:* ${document.getElementById('city').value}, ${document.getElementById('state').value}%0A`;
+            message += `📱 *WhatsApp:* ${document.getElementById('phone').value}%0A`;
 
-            if (service.includes('Real Meet')) {
-                message += `*Age:* ${document.getElementById('age').value}%0A`;
-                message += `*Meet Date:* ${document.getElementById('meet_date').value}%0A`;
-                message += `*Place:* ${document.getElementById('place').value}%0A`;
-                message += `*399 Fee:* Agreed ✅%0A`;
+            if (service.includes('Real Meet') || service.includes('Staff Service')) {
+                message += `🎂 *Age:* ${document.getElementById('age').value}%0A`;
+                message += `📅 *Date:* ${document.getElementById('meet_date').value}%0A`;
+                message += `🏨 *Place:* ${document.getElementById('place').value}%0A`;
+                message += `✅ *Registration Fee:* 399/- Agreed%0A`;
             } else {
-                message += `*Exp:* ${document.getElementById('exp').value}%0A`;
-                message += `*Working:* ${document.getElementById('working').value}%0A`;
-                message += `*Address:* ${document.getElementById('address').value}%0A`;
+                message += `💼 *Experience:* ${document.getElementById('exp').value}%0A`;
+                message += `⏱️ *Status:* ${document.getElementById('working').value}%0A`;
+                message += `🏠 *Address:* ${document.getElementById('address').value}%0A`;
             }
 
-            message += `%0A*Portal:* Real Meet Network 2026`;
+            message += `%0A==========================%0A`;
+            message += `*Verified Via Premium Hospitality Hub*%0A`;
+            message += `*Status:* Pending Approval ⏳`;
             
-            // Yahan apna WhatsApp Number daalein
-            const wpNumber = "911234567890"; 
-            window.location.href = `https://wa.me/+917678125700?text=${message}`;
+            const wpNumber = "917678125700"; 
+            window.location.href = `https://wa.me/${wpNumber}?text=${message}`;
         };
 
-        // 3. Compact Notifications (Every 30s)
         const maleNames = ["Rahul", "Vikram", "Sameer", "Amit", "Sanjay", "Rohan", "Abhishek"];
         const cities = ["Delhi", "Mumbai", "Pune", "Bangalore", "Jaipur", "Gurgaon"];
 
