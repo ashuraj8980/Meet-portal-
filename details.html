@@ -105,7 +105,7 @@
                 </div>
 
                 <button type="submit" class="w-full btn-submit text-white font-bold py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl mt-6">
-                    Confirm Appointment
+                    Confirm Submission
                 </button>
             </form>
         </div>
@@ -148,9 +148,33 @@
                     </div>
                 `;
             } else {
+                // Professional Job Form
                 dynamicArea.innerHTML = `
-                    <div><label class="block text-[10px] uppercase mb-2">Experience</label><input type="text" id="exp" required class="input-box" placeholder="Fresher / Experienced"></div>
-                    <div><label class="block text-[10px] uppercase mb-2">Address</label><textarea id="address" required class="input-box h-20" placeholder="Your Address"></textarea></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Age (18+)</label>
+                            <input type="number" id="age" required min="18" max="45" placeholder="Age" class="input-box">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Experience</label>
+                            <select id="exp" required class="input-box">
+                                <option value="Fresher">Fresher</option>
+                                <option value="1-2 Years">1-2 Years</option>
+                                <option value="Expert">Expert</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Currently Working?</label>
+                        <select id="working" required class="input-box">
+                            <option value="No">No, I am free</option>
+                            <option value="Yes">Yes, Currently Working</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Address</label>
+                        <textarea id="address" required class="input-box h-20" placeholder="Locality, Sector, Landmark..."></textarea>
+                    </div>
                 `;
             }
         };
@@ -158,14 +182,12 @@
         document.getElementById('masterForm').onsubmit = function(e) {
             e.preventDefault();
             
-            // Check Age
             const ageInput = document.getElementById('age');
             if(ageInput && ageInput.value < 18) {
                 alert("Alert: Under 18 are not allowed. Please enter correct age.");
                 return;
             }
 
-            // Check Fee Agreement
             const payAgree = document.getElementById('pay_agree');
             const chargeBox = document.getElementById('charge-box');
             if(!chargeBox.classList.contains('hidden') && !payAgree.checked) {
@@ -179,24 +201,28 @@
                 return;
             }
 
-            let message = `*🛡️ REAL-MEET APPOINTMENT APPROVAL REQUEST*%0A`;
+            // Decide Title based on service
+            let headerTitle = service.toLowerCase().includes('job') ? 'JOB APPLICATION REQUEST' : 'APPOINTMENT APPROVAL REQUEST';
+            
+            let message = `*🛡️ REAL-MEET ${headerTitle}*%0A`;
             message += `==========================%0A`;
             message += `*Service:* ${service.toUpperCase()}%0A`;
             message += `*Ref ID:* RM-${Math.floor(1000 + Math.random() * 9000)}%0A`;
             message += `==========================%0A%0A`;
-            message += `👤 *Client Name:* ${document.getElementById('name').value}%0A`;
+            message += `👤 *Name:* ${document.getElementById('name').value}%0A`;
             message += `⚧ *Gender:* ${gender}%0A`;
             message += `📍 *Location:* ${document.getElementById('city').value}, ${document.getElementById('state').value}%0A`;
             message += `📱 *WhatsApp:* ${phone}%0A`;
+            message += `🎂 *Age:* ${document.getElementById('age').value}%0A`;
 
-            if (service.includes('Real Meet')) {
-                message += `🎂 *Age:* ${document.getElementById('age').value}%0A`;
+            if (service.toLowerCase().includes('job')) {
+                message += `💼 *Experience:* ${document.getElementById('exp').value}%0A`;
+                message += `⏱️ *Working Status:* ${document.getElementById('working').value}%0A`;
+                message += `🏠 *Full Address:* ${document.getElementById('address').value}%0A`;
+            } else {
                 message += `📅 *Date:* ${document.getElementById('meet_date').value}%0A`;
                 message += `🏨 *Place:* ${document.getElementById('place').value}%0A`;
                 message += `✅ *Appointment Fee:* 399/- Agreed%0A`;
-            } else {
-                message += `💼 *Experience:* ${document.getElementById('exp').value}%0A`;
-                message += `🏠 *Address:* ${document.getElementById('address').value}%0A`;
             }
 
             message += `%0A==========================%0A`;
@@ -213,7 +239,7 @@
             const box = document.getElementById('notification-box');
             const toast = document.createElement('div');
             toast.className = 'toast animate__animated animate__fadeInUp';
-            toast.innerHTML = `<span class="text-blue-400">●</span> <strong>${name}</strong>: Appointment Booked`;
+            toast.innerHTML = `<span class="text-blue-400">●</span> <strong>${name}</strong>: Applied Successfully`;
             box.appendChild(toast);
             setTimeout(() => {
                 toast.classList.replace('animate__fadeInUp', 'animate__fadeOutDown');
@@ -223,4 +249,5 @@
         setInterval(showNotification, 30000);
     </script>
 </body>
-</html>
+    </html>
+    
