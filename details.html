@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification | Real Meet Official</title>
+    <title>Verification Portal | Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -15,7 +15,9 @@
         .btn-submit { background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%); transition: all 0.3s ease; }
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(30, 64, 175, 0.2); }
         
-        #notification-box { position: fixed; bottom: 85px; left: 15px; z-index: 9999; pointer-events: none; }
+        .audio-container { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 18px; border: 1px solid #334155; margin-bottom: 20px; }
+        
+        #notification-box { position: fixed; bottom: 120px; left: 15px; z-index: 9999; pointer-events: none; }
         .toast { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); color: white; padding: 6px 12px; border-radius: 50px; font-size: 10px; margin-top: 6px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); max-width: 220px; }
     </style>
 </head>
@@ -34,12 +36,39 @@
     </nav>
 
     <main class="mt-24 px-4 w-full max-w-lg mb-16">
+        
+        <div class="audio-container shadow-2xl animate__animated animate__fadeIn">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg text-xl border-2 border-blue-400/30">🎙️</div>
+                <div class="flex-1">
+                    <h3 class="text-blue-400 text-[10px] font-black uppercase tracking-widest">Guidance Audio</h3>
+                    <p id="audio-desc" class="text-white text-[10px] mb-2 font-medium leading-relaxed italic"></p>
+                    <audio id="instructionAudio" controls class="w-full h-8 scale-95 origin-left opacity-90">
+                        <source id="audioSource" src="" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
         <div class="bg-slate-900 rounded-3xl p-6 mb-6 text-white shadow-xl">
-            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">Application Status</p>
+            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">Current Status</p>
             <h2 id="form-title" class="text-xl font-extrabold mt-1 tracking-tight italic uppercase">Processing...</h2>
         </div>
 
         <div class="main-card p-8">
+            <div class="bg-red-50 border border-red-200 p-4 rounded-xl mb-4 text-center shadow-sm">
+                <p class="text-[10px] font-black text-red-700 uppercase tracking-wider leading-tight">
+                    🔴 STOP: Audio sunne ke baad hi apna form complete karein.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100 mb-6">
+                <input type="checkbox" id="confirm_audio" required class="w-4 h-4 text-blue-600 rounded">
+                <label for="confirm_audio" class="text-[10px] font-bold text-slate-600 uppercase tracking-tight cursor-pointer">
+                    Maine audio instructions dhyan se sun li hain.
+                </label>
+            </div>
+            
             <form id="masterForm" class="space-y-5">
                 <div>
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
@@ -51,19 +80,26 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">State</label>
                         <select id="state" required class="input-box">
                             <option value="">Select State</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                             <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
                             <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Delhi">Delhi</option>
+                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi NCR">Delhi NCR</option>
                             <option value="Goa">Goa</option>
                             <option value="Gujarat">Gujarat</option>
                             <option value="Haryana">Haryana</option>
                             <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
                             <option value="Jharkhand">Jharkhand</option>
                             <option value="Karnataka">Karnataka</option>
                             <option value="Kerala">Kerala</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
                             <option value="Madhya Pradesh">Madhya Pradesh</option>
                             <option value="Maharashtra">Maharashtra</option>
                             <option value="Manipur">Manipur</option>
@@ -71,6 +107,7 @@
                             <option value="Mizoram">Mizoram</option>
                             <option value="Nagaland">Nagaland</option>
                             <option value="Odisha">Odisha</option>
+                            <option value="Puducherry">Puducherry</option>
                             <option value="Punjab">Punjab</option>
                             <option value="Rajasthan">Rajasthan</option>
                             <option value="Sikkim">Sikkim</option>
@@ -95,12 +132,10 @@
                     <input type="tel" id="phone" required pattern="[6789][0-9]{9}" maxlength="10" placeholder="10 Digit Number" class="input-box">
                 </div>
 
-                <div id="charge-box" class="hidden bg-blue-50 border border-blue-100 p-4 rounded-xl mt-4">
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl mt-4">
                     <div class="flex items-start gap-3">
-                        <input type="checkbox" id="pay_agree" class="mt-1 w-4 h-4 text-blue-600">
-                        <label for="pay_agree" class="text-[11px] font-bold text-blue-800 leading-tight">
-                            I agree to pay <span class="text-sm">₹399/-</span> for Profile Selection & Appointment Fee. No profiles will be shown without this fee.
-                        </label>
+                        <input type="checkbox" id="pay_agree" required class="mt-1 w-4 h-4 text-blue-600 rounded">
+                        <label for="pay_agree" id="fee_label" class="text-[11px] font-bold text-blue-800 leading-tight"></label>
                     </div>
                 </div>
 
@@ -111,21 +146,41 @@
         </div>
     </main>
 
-    <footer class="mt-auto py-10 px-6 w-full bg-black text-white text-center">
-        <span class="text-[9px] text-gray-500 font-bold uppercase tracking-widest underline decoration-gray-800">Premium Meetup Hub | Secure Portal</span>
+    <footer class="mt-auto py-12 px-6 w-full bg-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-lg mx-auto text-center">
+            <div class="mb-6 space-y-2">
+                <p class="text-[11px] font-bold text-slate-300">Serving Professionals Since 2020</p>
+                <div class="flex justify-center gap-2">
+                    <span class="bg-blue-900/30 text-blue-400 px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider">100% Happy Customer Satisfaction</span>
+                </div>
+            </div>
+            <div class="flex justify-center gap-4 mb-8 text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#" class="hover:text-blue-400">Terms & Conditions</a>
+                <span>•</span>
+                <a href="#" class="hover:text-blue-400">Privacy Policy</a>
+            </div>
+            <p class="text-[8px] text-slate-600 font-bold uppercase tracking-[0.2em] leading-relaxed">
+                © 2020 - 2026 Real Meet Network. All Rights Reserved.
+            </p>
+        </div>
     </footer>
 
     <script>
         const service = localStorage.getItem('selected_service') || 'Real Meet';
-        const gender = localStorage.getItem('user_identity') || 'Male';
 
         window.onload = function() {
             document.getElementById('form-title').innerText = service;
             const dynamicArea = document.getElementById('dynamic-fields');
-            const chargeBox = document.getElementById('charge-box');
+            const feeLabel = document.getElementById('fee_label');
+            const audioSource = document.getElementById('audioSource');
+            const audioDesc = document.getElementById('audio-desc');
+            const instructionAudio = document.getElementById('instructionAudio');
 
             if (service.includes('Real Meet') || service.includes('Staff Service')) {
-                chargeBox.classList.remove('hidden');
+                audioSource.src = "meet.mp3";
+                audioDesc.innerText = "Please Note: Agar aap Real Meet Service ke liye form fill kar rahe hain, toh aage badhne se pehle is audio ko dhyan se sun lein. Shukriya.";
+                feeLabel.innerHTML = `I agree to pay <span class="text-sm">₹399/-</span> for Appointment Confirmation.`;
+                
                 dynamicArea.innerHTML = `
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -133,7 +188,7 @@
                             <input type="number" id="age" required min="18" max="60" placeholder="Age" class="input-box">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Date</label>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Preferred Date</label>
                             <input type="date" id="meet_date" required class="input-box">
                         </div>
                     </div>
@@ -141,96 +196,59 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Meeting Place</label>
                         <select id="place" required class="input-box">
                             <option value="">Select Place</option>
-                            <option value="Hotel">Hotel</option>
-                            <option value="Flat">Private Flat</option>
+                            <option value="Hotel">Luxury Hotel</option>
+                            <option value="Residency">Private Residency</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
                 `;
             } else {
-                // Professional Job Form
+                audioSource.src = "job.mp3";
+                audioDesc.innerText = "Please Note: Agar aap Job Service ke liye form fill kar rahe hain, toh aage badhne se pehle is audio ko dhyan se sun lein. Shukriya.";
+                feeLabel.innerHTML = `I agree to pay <span class="text-sm">₹499/-</span> for Profile Registration.`;
+
                 dynamicArea.innerHTML = `
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Age (18+)</label>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Age</label>
                             <input type="number" id="age" required min="18" max="45" placeholder="Age" class="input-box">
                         </div>
                         <div>
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Experience</label>
                             <select id="exp" required class="input-box">
-                                <option value="Fresher">Fresher</option>
-                                <option value="1-2 Years">1-2 Years</option>
-                                <option value="Expert">Expert</option>
+                                <option value="Fresher">Entry Level (Fresher)</option>
+                                <option value="Experienced">Professional (Experienced)</option>
                             </select>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Currently Working?</label>
-                        <select id="working" required class="input-box">
-                            <option value="No">No, I am free</option>
-                            <option value="Yes">Yes, Currently Working</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Address</label>
-                        <textarea id="address" required class="input-box h-20" placeholder="Locality, Sector, Landmark..."></textarea>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Current Address</label>
+                        <textarea id="address" required class="input-box h-20" placeholder="Full Address..."></textarea>
                     </div>
                 `;
             }
+            instructionAudio.load();
         };
 
         document.getElementById('masterForm').onsubmit = function(e) {
             e.preventDefault();
-            
-            const ageInput = document.getElementById('age');
-            if(ageInput && ageInput.value < 18) {
-                alert("Alert: Under 18 are not allowed. Please enter correct age.");
-                return;
-            }
-
-            const payAgree = document.getElementById('pay_agree');
-            const chargeBox = document.getElementById('charge-box');
-            if(!chargeBox.classList.contains('hidden') && !payAgree.checked) {
-                alert("Privacy Warning: Profiles and personal details cannot be shared without accepting the mandatory Appointment Fee (₹399). This is strictly for privacy concern.");
+            if(!document.getElementById('confirm_audio').checked || !document.getElementById('pay_agree').checked) {
+                alert("Please confirm both checkboxes before submitting.");
                 return;
             }
 
             const phone = document.getElementById('phone').value;
-            if(!/^[6-9][0-9]{9}$/.test(phone)) {
-                alert("Please enter a valid 10-digit mobile number.");
-                return;
-            }
-
-            // Decide Title based on service
-            let headerTitle = service.toLowerCase().includes('job') ? 'JOB APPLICATION REQUEST' : 'APPOINTMENT APPROVAL REQUEST';
-            
-            let message = `*🛡️ REAL-MEET ${headerTitle}*%0A`;
-            message += `==========================%0A`;
-            message += `*Service:* ${service.toUpperCase()}%0A`;
-            message += `*Ref ID:* RM-${Math.floor(1000 + Math.random() * 9000)}%0A`;
-            message += `==========================%0A%0A`;
-            message += `👤 *Name:* ${document.getElementById('name').value}%0A`;
-            message += `⚧ *Gender:* ${gender}%0A`;
-            message += `📍 *Location:* ${document.getElementById('city').value}, ${document.getElementById('state').value}%0A`;
-            message += `📱 *WhatsApp:* ${phone}%0A`;
-            message += `🎂 *Age:* ${document.getElementById('age').value}%0A`;
+            const amount = service.toLowerCase().includes('job') ? "499/-" : "399/-";
+            let message = `*🛡️ NEW VERIFIED REQUEST*%0A*Service:* ${service.toUpperCase()}%0A*Name:* ${document.getElementById('name').value}%0A*Loc:* ${document.getElementById('city').value}, ${document.getElementById('state').value}%0A*Phone:* ${phone}%0A*Age:* ${document.getElementById('age').value}%0A`;
 
             if (service.toLowerCase().includes('job')) {
-                message += `💼 *Experience:* ${document.getElementById('exp').value}%0A`;
-                message += `⏱️ *Working Status:* ${document.getElementById('working').value}%0A`;
-                message += `🏠 *Full Address:* ${document.getElementById('address').value}%0A`;
+                message += `*Exp:* ${document.getElementById('exp').value}%0A*Add:* ${document.getElementById('address').value}%0A`;
             } else {
-                message += `📅 *Date:* ${document.getElementById('meet_date').value}%0A`;
-                message += `🏨 *Place:* ${document.getElementById('place').value}%0A`;
-                message += `✅ *Appointment Fee:* 399/- Agreed%0A`;
+                message += `*Date:* ${document.getElementById('meet_date').value}%0A*Place:* ${document.getElementById('place').value}%0A`;
             }
 
-            message += `%0A==========================%0A`;
-            message += `*Verified Via Premium Meetup Hub*%0A`;
-            message += `*Status:* Pending Approval ⏳`;
-            
-            const wpNumber = "917678125700"; 
-            window.open(`https://wa.me/${wpNumber}?text=${message}`, '_blank');
+            message += `*Fee:* ${amount}%0A*Audio:* Confirmed ✅`;
+            window.open(`https://wa.me/917678125700?text=${message}`, '_blank');
         };
 
         const maleNames = ["Rahul", "Vikram", "Sameer", "Amit", "Sanjay", "Rohan"];
@@ -246,8 +264,7 @@
                 setTimeout(() => toast.remove(), 800);
             }, 5000);
         }
-        setInterval(showNotification, 30000);
+        setInterval(showNotification, 20000);
     </script>
 </body>
-    </html>
-    
+</html>
