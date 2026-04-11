@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification Portal | Official</title>
     
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1355655022513470'); 
-    fbq('track', 'PageView');
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -63,7 +50,7 @@
                 <span id="nav-brand" class="text-lg font-extrabold text-blue-900 tracking-tighter uppercase leading-none">Real Meet</span>
                 <span class="text-[9px] font-bold text-blue-500 uppercase tracking-widest mt-1 italic">Appointment Approval</span>
             </div>
-            <div class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-black uppercase">satisfied customer 6000+</div>
+            <div class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-black uppercase">Satisfied customer 6000+</div>
         </div>
     </nav>
 
@@ -108,45 +95,36 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Gender</label>
+                        <select id="gender" required class="input-box">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Age</label>
+                        <input type="number" id="age" required min="18" placeholder="Age" class="input-box">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">State</label>
                         <select id="state" required class="input-box">
                             <option value="">Select State</option>
-                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
-                            <option value="Chandigarh">Chandigarh</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
                             <option value="Delhi NCR">Delhi NCR</option>
-                            <option value="Goa">Goa</option>
                             <option value="Gujarat">Gujarat</option>
                             <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                            <option value="Jharkhand">Jharkhand</option>
                             <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Ladakh">Ladakh</option>
-                            <option value="Lakshadweep">Lakshadweep</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
                             <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Puducherry">Puducherry</option>
                             <option value="Punjab">Punjab</option>
                             <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
                             <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
+                            <option value="Other">Other States...</option>
                         </select>
                     </div>
                     <div>
@@ -173,7 +151,7 @@
                 <div class="btn-wrapper">
                     <button type="submit" class="btn-submit">
                         <svg class="w-5 h-5" fill="white" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.4-.3-8.3 2.4-11.1 2.4-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                        Connect Directly on WhatsApp
+                        Confirm & Send Details
                     </button>
                 </div>
             </form>
@@ -228,11 +206,10 @@
                 feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">499/-</span> as an Appointment Fee for Job Profile Activation.`;
                 
                 dynamicFields.innerHTML = `
-                    <div class="grid grid-cols-2 gap-4">
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Age</label><input type="number" id="age" required min="18" max="45" class="input-box"></div>
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Experience</label><select id="exp" required class="input-box"><option value="Fresher">Fresher</option><option value="Experienced">Experienced</option></select></div>
-                    </div>
-                    <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Full Address</label><textarea id="address" required class="input-box h-20" placeholder="Enter House No, Area, Landmark"></textarea></div>
+                    <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Experience</label>
+                    <select id="exp" required class="input-box"><option value="Fresher">Fresher</option><option value="Experienced">Experienced</option></select></div>
+                    <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Full Address</label>
+                    <textarea id="address" required class="input-box h-20" placeholder="House No, Area, Landmark"></textarea></div>
                 `;
             } else {
                 audioSource.src = "meet.mp3";
@@ -241,20 +218,14 @@
                 feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">399/-</span> as an Appointment Fee for Profile Selection.`;
 
                 dynamicFields.innerHTML = `
-                    <div class="grid grid-cols-2 gap-4">
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Age (18+)</label><input type="number" id="age" required min="18" max="60" class="input-box"></div>
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Meeting Date</label><input type="date" id="meet_date" required class="input-box"></div>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Meeting Place</label>
-                        <select id="place" required class="input-box">
-                            <option value="Private Flat">Private Flat</option>
-                            <option value="Personal Room">Personal Room</option>
-                            <option value="Luxury Hotel">Luxury Hotel</option>
-                            <option value="OYO / Guest House">OYO / Guest House</option>
-                            <option value="Resort">Resort</option>
-                        </select>
-                    </div>
+                    <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Meeting Date</label><input type="date" id="meet_date" required class="input-box"></div>
+                    <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Meeting Place</label>
+                    <select id="place" required class="input-box">
+                        <option value="Private Flat">Private Flat</option>
+                        <option value="Personal Room">Personal Room</option>
+                        <option value="Luxury Hotel">Luxury Hotel</option>
+                        <option value="OYO / Resort">OYO / Resort</option>
+                    </select></div>
                 `;
             }
             document.getElementById('instructionAudio').load();
@@ -267,29 +238,50 @@
                 return;
             }
 
-            fbq('track', 'Lead');
-
+            const amount = service.toLowerCase().includes('job') ? "499/-" : "399/-";
             const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+            const age = document.getElementById('age').value;
             const city = document.getElementById('city').value;
             const state = document.getElementById('state').value;
             const phone = document.getElementById('phone').value;
-            const age = document.getElementById('age').value;
 
-            let message = `*VERIFICATION REQUEST*%0A*Service:* ${service.toUpperCase()}%0A*Name:* ${name}%0A*Age:* ${age}%0A*Phone:* ${phone}%0A*Location:* ${city}, ${state}%0A`;
-            
+            // WhatsApp Invoice Format
+            let message = `*📄 APPOINTMENT INVOICE*%0A`;
+            message += `-----------------------------------%0A`;
+            message += `*Service:* ${service.toUpperCase()}%0A`;
+            message += `*Status:* 🟡 Approval Pending%0A`;
+            message += `-----------------------------------%0A`;
+            message += `*CLIENT DETAILS:*%0A`;
+            message += `*Name:* ${name}%0A`;
+            message += `*Gender:* ${gender}%0A`;
+            message += `*Age:* ${age} Years%0A`;
+            message += `*Phone:* ${phone}%0A`;
+            message += `*Location:* ${city}, ${state}%0A`;
+            message += `-----------------------------------%0A`;
+
             if (service.toLowerCase().includes('job')) {
-                message += `*Exp:* ${document.getElementById('exp').value}%0A*Address:* ${document.getElementById('address').value}%0A`;
+                message += `*JOB DETAILS:*%0A`;
+                message += `*Exp:* ${document.getElementById('exp').value}%0A`;
+                message += `*Add:* ${document.getElementById('address').value}%0A`;
             } else {
-                message += `*Date:* ${document.getElementById('meet_date').value}%0A*Place:* ${document.getElementById('place').value}%0A`;
+                message += `*MEET DETAILS:*%0A`;
+                message += `*Date:* ${document.getElementById('meet_date').value}%0A`;
+                message += `*Place:* ${document.getElementById('place').value}%0A`;
             }
-            message += `%0A*Note:* Process verified via portal.`;
+
+            message += `-----------------------------------%0A`;
+            message += `*PAYMENT SUMMARY:*%0A`;
+            message += `*Appointment Fee:* ${amount}%0A`;
+            message += `-----------------------------------%0A`;
+            message += `*Request:* Please verify my profile and activate selection portal.`;
+
             window.open(`https://wa.me/917678125700?text=${message}`, '_blank');
         };
 
         function showNotification() {
-            const boysNames = ["Rahul", "Vikram", "Sameer", "Amit", "Sandeep", "Deepak", "Rohan", "Abhishek", "Vishal", "Karan"];
+            const boysNames = ["Rahul", "Vikram", "Sameer", "Amit", "Sandeep", "Deepak", "Rohan", "Abhishek"];
             const locations = ["Delhi NCR", "Mumbai", "Pune", "Bangalore", "Lucknow", "Jaipur"];
-            
             const name = boysNames[Math.floor(Math.random() * boysNames.length)];
             const loc = locations[Math.floor(Math.random() * locations.length)];
             
@@ -307,5 +299,4 @@
         setInterval(showNotification, 10000);
     </script>
 </body>
-                                                                           </html>
-                    
+</html>
