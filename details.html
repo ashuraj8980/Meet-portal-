@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification Portal | Official</title>
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1355655022513470'); 
+    fbq('track', 'PageView');
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -13,26 +27,30 @@
         .input-box { background: #f1f5f9; border: 1px solid #e2e8f0; width: 100%; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 600; color: #1e293b; transition: 0.3s; }
         .input-box:focus { background: white; border-color: #2563eb; outline: none; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
         
-        /* WhatsApp Button - Perfect Centering & Design */
+        .btn-wrapper { display: flex; justify-content: center; width: 100%; margin-top: 24px; }
         .btn-submit { 
             background: linear-gradient(90deg, #059669 0%, #10b981 100%); 
             transition: all 0.3s ease; 
             width: 100%;
-            max-width: 320px;
             display: flex;
-            margin: 20px auto 0 auto;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             border-bottom: 4px solid #047857;
+            padding: 18px 15px;
+            cursor: pointer;
+            border-radius: 16px;
+            white-space: nowrap; 
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 13px;
         }
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
-        .btn-submit:active { transform: translateY(0); border-bottom-width: 0; }
         
         .audio-container { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 18px; border: 1px solid #334155; margin-bottom: 20px; }
-        
         #notification-box { position: fixed; bottom: 120px; left: 15px; z-index: 9999; pointer-events: none; }
-        .toast { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); color: white; padding: 6px 12px; border-radius: 50px; font-size: 10px; margin-top: 6px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); max-width: 220px; }
+        .toast { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); color: white; padding: 8px 14px; border-radius: 50px; font-size: 10px; margin-top: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); max-width: 280px; }
     </style>
 </head>
 <body class="flex flex-col items-center min-h-screen">
@@ -42,10 +60,10 @@
     <nav class="w-full bg-white border-b border-gray-100 py-3 px-6 fixed top-0 z-50">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div class="flex flex-col text-left">
-                <span class="text-lg font-extrabold text-blue-900 tracking-tighter uppercase">Real Meet</span>
-                <span class="text-[9px] font-bold text-blue-500 uppercase tracking-widest -mt-1 italic">Appointment Approval</span>
+                <span id="nav-brand" class="text-lg font-extrabold text-blue-900 tracking-tighter uppercase leading-none">Real Meet</span>
+                <span class="text-[9px] font-bold text-blue-500 uppercase tracking-widest mt-1 italic">Appointment Approval</span>
             </div>
-            <div class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-black uppercase tracking-tighter">Verified Portal 2026</div>
+            <div class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-black uppercase">satisfied customer 6000+</div>
         </div>
     </nav>
 
@@ -53,7 +71,7 @@
         
         <div class="audio-container shadow-2xl animate__animated animate__fadeIn">
             <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg text-xl border-2 border-blue-400/30">🎙️</div>
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg text-xl border-2 border-blue-400/30 text-white">🎙️</div>
                 <div class="flex-1">
                     <h3 class="text-blue-400 text-[10px] font-black uppercase tracking-widest">Guidance Audio</h3>
                     <p id="audio-desc" class="text-white text-[10px] mb-2 font-medium leading-relaxed italic"></p>
@@ -66,7 +84,7 @@
 
         <div class="bg-slate-900 rounded-3xl p-6 mb-6 text-white shadow-xl">
             <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">Current Status</p>
-            <h2 id="form-title" class="text-xl font-extrabold mt-1 tracking-tight italic uppercase">Processing...</h2>
+            <h2 id="form-title" class="text-xl font-extrabold mt-1 tracking-tight italic uppercase">Loading...</h2>
         </div>
 
         <div class="main-card p-8">
@@ -78,15 +96,14 @@
 
             <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100 mb-6">
                 <input type="checkbox" id="confirm_audio" required class="w-4 h-4 text-blue-600 rounded">
-                <label for="confirm_audio" class="text-[10px] font-bold text-slate-600 uppercase tracking-tight cursor-pointer leading-tight">
-                    Maine audio instructions dhyan se sun li hain aur main process samajh chuka hoon.
-                </label>
+                <label for="confirm_audio" id="confirm_label" class="text-[10px] font-bold text-slate-600 uppercase tracking-tight cursor-pointer leading-tight">
+                    </label>
             </div>
             
             <form id="masterForm" class="space-y-5">
                 <div>
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
-                    <input type="text" id="name" required minlength="3" placeholder="Enter Full Name" class="input-box">
+                    <input type="text" id="name" required placeholder="Enter Full Name" class="input-box">
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
@@ -94,15 +111,42 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">State</label>
                         <select id="state" required class="input-box">
                             <option value="">Select State</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
                             <option value="Delhi NCR">Delhi NCR</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Karnataka">Karnataka</option>
+                            <option value="Goa">Goa</option>
                             <option value="Gujarat">Gujarat</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Puducherry">Puducherry</option>
                             <option value="Punjab">Punjab</option>
                             <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
-                            <option value="Other">Other State</option>
                         </select>
                     </div>
                     <div>
@@ -121,46 +165,46 @@
                 <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl mt-4">
                     <div class="flex items-start gap-3">
                         <input type="checkbox" id="pay_agree" required class="mt-1 w-4 h-4 text-blue-600 rounded">
-                        <label for="pay_agree" id="fee_label" class="text-[11px] font-bold text-blue-800 leading-tight"></label>
+                        <label for="pay_agree" id="fee_label" class="text-[11px] font-bold text-blue-800 leading-tight">
+                            </label>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-submit text-white font-bold py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Connect Directly on WhatsApp
-                </button>
+                <div class="btn-wrapper">
+                    <button type="submit" class="btn-submit">
+                        <svg class="w-5 h-5" fill="white" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.4-.3-8.3 2.4-11.1 2.4-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                        Connect Directly on WhatsApp
+                    </button>
+                </div>
             </form>
         </div>
     </main>
 
-    <footer class="mt-auto py-12 px-6 w-full bg-slate-900 text-white border-t border-slate-800">
-        <div class="max-w-xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 text-left">
-                <div>
-                    <h4 class="text-blue-400 text-[10px] font-black uppercase tracking-widest mb-4">How Does It Work?</h4>
-                    <ul class="text-[10px] space-y-2 text-slate-400 font-medium leading-relaxed">
-                        <li>1. Submit your details for Profile Verification.</li>
-                        <li>2. Pay the Appointment Fee for final selection.</li>
-                        <li>3. Direct discussion on WhatsApp for details.</li>
-                        <li>4. Service confirmation and timing setup.</li>
-                    </ul>
+    <footer class="w-full bg-slate-950 text-white pt-16 pb-12 px-8 border-t border-slate-800 mt-10">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <h4 class="text-blue-500 text-[11px] font-black uppercase tracking-[0.2em] mb-4">How It Works</h4>
+                <div class="space-y-4 text-[10px] text-slate-400 font-bold uppercase leading-relaxed">
+                    <p>01. Listen to the voice guidance module to understand all protocols.</p>
+                    <p>02. Submit your accurate details to initiate profile activation.</p>
+                    <p>03. Finalize coordination via WhatsApp with our representative.</p>
                 </div>
-                <div id="stats-container">
-                    </div>
             </div>
-
-            <div class="text-center border-t border-slate-800 pt-8">
-                <div class="flex flex-wrap justify-center gap-4 mb-6 text-[9px] font-bold uppercase tracking-widest text-slate-500">
-                    <a href="#" class="hover:text-blue-400">Terms & Conditions</a>
-                    <span>•</span>
-                    <a href="#" class="hover:text-blue-400">Privacy Policy</a>
-                    <span>•</span>
-                    <a href="#" class="hover:text-blue-400">Join Network</a>
-                </div>
-                <p class="text-[8px] text-slate-600 font-bold uppercase tracking-[0.2em] leading-relaxed">
-                    © 2020 - 2026 Real Meet Network. All Rights Reserved.
-                </p>
+            <div>
+                <h4 class="text-emerald-500 text-[11px] font-black uppercase tracking-[0.2em] mb-4">Network Strength</h4>
+                <p class="text-3xl font-black text-white">5800+</p>
+                <p class="text-[9px] text-slate-500 font-black uppercase tracking-[0.1em] mt-1">Verified Happy Clients</p>
             </div>
+            <div>
+                <h4 class="text-slate-400 text-[11px] font-black uppercase tracking-[0.2em] mb-4">Safety & Policy</h4>
+                <nav class="flex flex-col space-y-3 text-[10px] font-bold uppercase text-slate-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Protection Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Membership</a>
+                </nav>
+            </div>
+        </div>
+        <div class="border-t border-white/5 pt-8 text-center text-[8px] text-slate-700 italic uppercase">
+            © 2026 Real Meet Network. All rights reserved.
         </div>
     </footer>
 
@@ -169,133 +213,99 @@
 
         window.onload = function() {
             document.getElementById('form-title').innerText = service;
-            const dynamicArea = document.getElementById('dynamic-fields');
+            document.getElementById('nav-brand').innerText = service;
+            
             const feeLabel = document.getElementById('fee_label');
+            const confirmLabel = document.getElementById('confirm_label');
             const audioSource = document.getElementById('audioSource');
             const audioDesc = document.getElementById('audio-desc');
-            const instructionAudio = document.getElementById('instructionAudio');
-            const statsContainer = document.getElementById('stats-container');
+            const dynamicFields = document.getElementById('dynamic-fields');
 
-            if (service.includes('Real Meet') || service.includes('Staff Service')) {
-                audioSource.src = "meet.mp3";
-                audioDesc.innerText = "Please Note: Agar aap Real Meet Service ke liye form fill kar rahe hain, toh aage badhne se pehle is audio ko dhyan se sun lein. Shukriya.";
-                feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">₹399/-</span> as an Appointment Fee for Profile Selection & meeting discussion.`;
+            if (service.toLowerCase().includes('job')) {
+                audioSource.src = "job.mp3";
+                audioDesc.innerText = "Job Application Guidance - Please listen carefully.";
+                confirmLabel.innerText = "Maine meri wali audio instructions dhyan se sun li hain aur main process samajh chuka hoon.";
+                feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">499/-</span> as an Appointment Fee for Job Profile Activation.`;
                 
-                // Real Meet Stats
-                statsContainer.innerHTML = `
-                    <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-4">Service Reliability</h4>
+                dynamicFields.innerHTML = `
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
-                            <p class="text-white text-lg font-bold tracking-tight">3000+</p>
-                            <p class="text-[8px] text-slate-500 uppercase font-black">Regular Clients (PAN India)</p>
-                        </div>
-                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
-                            <p class="text-white text-lg font-bold tracking-tight">100%</p>
-                            <p class="text-[8px] text-slate-500 uppercase font-black">Discreet & Secure</p>
-                        </div>
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Age</label><input type="number" id="age" required min="18" max="45" class="input-box"></div>
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Experience</label><select id="exp" required class="input-box"><option value="Fresher">Fresher</option><option value="Experienced">Experienced</option></select></div>
                     </div>
+                    <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Full Address</label><textarea id="address" required class="input-box h-20" placeholder="Enter House No, Area, Landmark"></textarea></div>
                 `;
+            } else {
+                audioSource.src = "meet.mp3";
+                audioDesc.innerText = "Meeting Verification Guidance - Please listen carefully.";
+                confirmLabel.innerText = "Maine meri wali audio instructions dhyan se sun li hain aur main profile select karne ke liye taiyar hoon.";
+                feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">399/-</span> as an Appointment Fee for Profile Selection.`;
 
-                dynamicArea.innerHTML = `
+                dynamicFields.innerHTML = `
                     <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Age (18+)</label>
-                            <input type="number" id="age" required min="18" max="60" placeholder="Age" class="input-box">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Meeting Date</label>
-                            <input type="date" id="meet_date" required class="input-box">
-                        </div>
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Age (18+)</label><input type="number" id="age" required min="18" max="60" class="input-box"></div>
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Meeting Date</label><input type="date" id="meet_date" required class="input-box"></div>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Meeting Place</label>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Meeting Place</label>
                         <select id="place" required class="input-box">
-                            <option value="">Select Place</option>
-                            <option value="Luxury Hotel">Luxury Hotel</option>
                             <option value="Private Flat">Private Flat</option>
                             <option value="Personal Room">Personal Room</option>
-                            <option value="Other">Other Location</option>
+                            <option value="Luxury Hotel">Luxury Hotel</option>
+                            <option value="OYO / Guest House">OYO / Guest House</option>
+                            <option value="Resort">Resort</option>
                         </select>
                     </div>
                 `;
-            } else {
-                audioSource.src = "job.mp3";
-                audioDesc.innerText = "Please Note: Agar aap Job Service ke liye form fill kar rahe hain, toh aage badhne se pehle is audio ko dhyan se sun lein. Shukriya.";
-                feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">₹499/-</span> as an Appointment Fee for Profile Activation & earnings discussion.`;
-
-                // Job Service Stats
-                statsContainer.innerHTML = `
-                    <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-4">Earnings Overview</h4>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
-                            <p class="text-white text-lg font-bold tracking-tight">₹60k-70k</p>
-                            <p class="text-[8px] text-slate-500 uppercase font-black">Avg. Monthly Income</p>
-                        </div>
-                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
-                            <p class="text-white text-lg font-bold tracking-tight">500+</p>
-                            <p class="text-[8px] text-slate-500 uppercase font-black">Active Professionals</p>
-                        </div>
-                    </div>
-                `;
-
-                dynamicArea.innerHTML = `
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Age</label>
-                            <input type="number" id="age" required min="18" max="45" placeholder="Age" class="input-box">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Experience</label>
-                            <select id="exp" required class="input-box">
-                                <option value="Fresher">Entry Level (Fresher)</option>
-                                <option value="Experienced">Professional (Experienced)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Address</label>
-                        <textarea id="address" required class="input-box h-20" placeholder="Enter your full current address..."></textarea>
-                    </div>
-                `;
             }
-            instructionAudio.load();
+            document.getElementById('instructionAudio').load();
         };
 
         document.getElementById('masterForm').onsubmit = function(e) {
             e.preventDefault();
             if(!document.getElementById('confirm_audio').checked || !document.getElementById('pay_agree').checked) {
-                alert("Please confirm both checkboxes before connecting.");
+                alert("Please check all agreement boxes.");
                 return;
             }
 
-            const phone = document.getElementById('phone').value;
-            const amount = service.toLowerCase().includes('job') ? "499/-" : "399/-";
-            let message = `*🛡️ NEW VERIFIED REQUEST*%0A*Service:* ${service.toUpperCase()}%0A*Name:* ${document.getElementById('name').value}%0A*Loc:* ${document.getElementById('city').value}, ${document.getElementById('state').value}%0A*Phone:* ${phone}%0A*Age:* ${document.getElementById('age').value}%0A`;
+            fbq('track', 'Lead');
 
+            const name = document.getElementById('name').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+
+            let message = `*VERIFICATION REQUEST*%0A*Service:* ${service.toUpperCase()}%0A*Name:* ${name}%0A*Age:* ${age}%0A*Phone:* ${phone}%0A*Location:* ${city}, ${state}%0A`;
+            
             if (service.toLowerCase().includes('job')) {
-                message += `*Exp:* ${document.getElementById('exp').value}%0A*Add:* ${document.getElementById('address').value}%0A`;
+                message += `*Exp:* ${document.getElementById('exp').value}%0A*Address:* ${document.getElementById('address').value}%0A`;
             } else {
                 message += `*Date:* ${document.getElementById('meet_date').value}%0A*Place:* ${document.getElementById('place').value}%0A`;
             }
-
-            message += `*Fee Status:* Pending Approval%0A*Request:* Please discuss and confirm my appointment.`;
+            message += `%0A*Note:* Process verified via portal.`;
             window.open(`https://wa.me/917678125700?text=${message}`, '_blank');
         };
 
-        const maleNames = ["Rahul", "Vikram", "Sameer", "Amit", "Sanjay", "Rohan"];
         function showNotification() {
-            const name = maleNames[Math.floor(Math.random() * maleNames.length)];
+            const boysNames = ["Rahul", "Vikram", "Sameer", "Amit", "Sandeep", "Deepak", "Rohan", "Abhishek", "Vishal", "Karan"];
+            const locations = ["Delhi NCR", "Mumbai", "Pune", "Bangalore", "Lucknow", "Jaipur"];
+            
+            const name = boysNames[Math.floor(Math.random() * boysNames.length)];
+            const loc = locations[Math.floor(Math.random() * locations.length)];
+            
             const box = document.getElementById('notification-box');
+            if(!box) return;
             const toast = document.createElement('div');
             toast.className = 'toast animate__animated animate__fadeInUp';
-            toast.innerHTML = `<span class="text-blue-400">●</span> <strong>${name}</strong>: Applied Successfully`;
+            toast.innerHTML = `<span class="text-emerald-400">●</span> <strong>${name}</strong> (${loc}): Applied Successfully`;
             box.appendChild(toast);
             setTimeout(() => {
                 toast.classList.replace('animate__fadeInUp', 'animate__fadeOutDown');
                 setTimeout(() => toast.remove(), 800);
             }, 5000);
         }
-        setInterval(showNotification, 20000);
+        setInterval(showNotification, 10000);
     </script>
 </body>
-</html>
+                                                                           </html>
+                    
