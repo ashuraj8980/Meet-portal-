@@ -12,8 +12,22 @@
         .main-card { background: #ffffff; border-radius: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); border: 1px solid #e2e8f0; }
         .input-box { background: #f1f5f9; border: 1px solid #e2e8f0; width: 100%; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 600; color: #1e293b; transition: 0.3s; }
         .input-box:focus { background: white; border-color: #2563eb; outline: none; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
-        .btn-submit { background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%); transition: all 0.3s ease; }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(30, 64, 175, 0.2); }
+        
+        /* WhatsApp Button - Perfect Centering & Design */
+        .btn-submit { 
+            background: linear-gradient(90deg, #059669 0%, #10b981 100%); 
+            transition: all 0.3s ease; 
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            margin: 20px auto 0 auto;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 4px solid #047857;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
+        .btn-submit:active { transform: translateY(0); border-bottom-width: 0; }
         
         .audio-container { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 18px; border: 1px solid #334155; margin-bottom: 20px; }
         
@@ -31,7 +45,7 @@
                 <span class="text-lg font-extrabold text-blue-900 tracking-tighter uppercase">Real Meet</span>
                 <span class="text-[9px] font-bold text-blue-500 uppercase tracking-widest -mt-1 italic">Appointment Approval</span>
             </div>
-            <div class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-black uppercase">3,890+ Verified</div>
+            <div class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-black uppercase tracking-tighter">Verified Portal 2026</div>
         </div>
     </nav>
 
@@ -64,8 +78,8 @@
 
             <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100 mb-6">
                 <input type="checkbox" id="confirm_audio" required class="w-4 h-4 text-blue-600 rounded">
-                <label for="confirm_audio" class="text-[10px] font-bold text-slate-600 uppercase tracking-tight cursor-pointer">
-                    Maine audio instructions dhyan se sun li hain.
+                <label for="confirm_audio" class="text-[10px] font-bold text-slate-600 uppercase tracking-tight cursor-pointer leading-tight">
+                    Maine audio instructions dhyan se sun li hain aur main process samajh chuka hoon.
                 </label>
             </div>
             
@@ -80,43 +94,15 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">State</label>
                         <select id="state" required class="input-box">
                             <option value="">Select State</option>
-                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chandigarh">Chandigarh</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-                            <option value="Daman and Diu">Daman and Diu</option>
                             <option value="Delhi NCR">Delhi NCR</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Ladakh">Ladakh</option>
-                            <option value="Lakshadweep">Lakshadweep</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
                             <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Puducherry">Puducherry</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
                             <option value="Punjab">Punjab</option>
                             <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
+                            <option value="Other">Other State</option>
                         </select>
                     </div>
                     <div>
@@ -139,29 +125,42 @@
                     </div>
                 </div>
 
-                <button type="submit" class="w-full btn-submit text-white font-bold py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl mt-6">
-                    Confirm Submission
+                <button type="submit" class="btn-submit text-white font-bold py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Connect Directly on WhatsApp
                 </button>
             </form>
         </div>
     </main>
 
     <footer class="mt-auto py-12 px-6 w-full bg-slate-900 text-white border-t border-slate-800">
-        <div class="max-w-lg mx-auto text-center">
-            <div class="mb-6 space-y-2">
-                <p class="text-[11px] font-bold text-slate-300">Serving Professionals Since 2020</p>
-                <div class="flex justify-center gap-2">
-                    <span class="bg-blue-900/30 text-blue-400 px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider">100% Happy Customer Satisfaction</span>
+        <div class="max-w-xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 text-left">
+                <div>
+                    <h4 class="text-blue-400 text-[10px] font-black uppercase tracking-widest mb-4">How Does It Work?</h4>
+                    <ul class="text-[10px] space-y-2 text-slate-400 font-medium leading-relaxed">
+                        <li>1. Submit your details for Profile Verification.</li>
+                        <li>2. Pay the Appointment Fee for final selection.</li>
+                        <li>3. Direct discussion on WhatsApp for details.</li>
+                        <li>4. Service confirmation and timing setup.</li>
+                    </ul>
                 </div>
+                <div id="stats-container">
+                    </div>
             </div>
-            <div class="flex justify-center gap-4 mb-8 text-[9px] font-bold uppercase tracking-widest text-slate-500">
-                <a href="#" class="hover:text-blue-400">Terms & Conditions</a>
-                <span>•</span>
-                <a href="#" class="hover:text-blue-400">Privacy Policy</a>
+
+            <div class="text-center border-t border-slate-800 pt-8">
+                <div class="flex flex-wrap justify-center gap-4 mb-6 text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                    <a href="#" class="hover:text-blue-400">Terms & Conditions</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-blue-400">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-blue-400">Join Network</a>
+                </div>
+                <p class="text-[8px] text-slate-600 font-bold uppercase tracking-[0.2em] leading-relaxed">
+                    © 2020 - 2026 Real Meet Network. All Rights Reserved.
+                </p>
             </div>
-            <p class="text-[8px] text-slate-600 font-bold uppercase tracking-[0.2em] leading-relaxed">
-                © 2020 - 2026 Real Meet Network. All Rights Reserved.
-            </p>
         </div>
     </footer>
 
@@ -175,12 +174,28 @@
             const audioSource = document.getElementById('audioSource');
             const audioDesc = document.getElementById('audio-desc');
             const instructionAudio = document.getElementById('instructionAudio');
+            const statsContainer = document.getElementById('stats-container');
 
             if (service.includes('Real Meet') || service.includes('Staff Service')) {
                 audioSource.src = "meet.mp3";
                 audioDesc.innerText = "Please Note: Agar aap Real Meet Service ke liye form fill kar rahe hain, toh aage badhne se pehle is audio ko dhyan se sun lein. Shukriya.";
-                feeLabel.innerHTML = `I agree to pay <span class="text-sm">₹399/-</span> for Appointment Confirmation.`;
+                feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">₹399/-</span> as an Appointment Fee for Profile Selection & meeting discussion.`;
                 
+                // Real Meet Stats
+                statsContainer.innerHTML = `
+                    <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-4">Service Reliability</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                            <p class="text-white text-lg font-bold tracking-tight">3000+</p>
+                            <p class="text-[8px] text-slate-500 uppercase font-black">Regular Clients (PAN India)</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                            <p class="text-white text-lg font-bold tracking-tight">100%</p>
+                            <p class="text-[8px] text-slate-500 uppercase font-black">Discreet & Secure</p>
+                        </div>
+                    </div>
+                `;
+
                 dynamicArea.innerHTML = `
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -188,7 +203,7 @@
                             <input type="number" id="age" required min="18" max="60" placeholder="Age" class="input-box">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Preferred Date</label>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Meeting Date</label>
                             <input type="date" id="meet_date" required class="input-box">
                         </div>
                     </div>
@@ -196,18 +211,32 @@
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Meeting Place</label>
                         <select id="place" required class="input-box">
                             <option value="">Select Place</option>
-                            <option value="Hotel">Luxury Hotel</option>
-                            <option value="Flat/Room">Flat/Room</option>
-                            <option value="Residency">Private Residency</option>
-                            <option value="Other">Other</option>
-                        
-</select>
+                            <option value="Luxury Hotel">Luxury Hotel</option>
+                            <option value="Private Flat">Private Flat</option>
+                            <option value="Personal Room">Personal Room</option>
+                            <option value="Other">Other Location</option>
+                        </select>
                     </div>
                 `;
             } else {
                 audioSource.src = "job.mp3";
                 audioDesc.innerText = "Please Note: Agar aap Job Service ke liye form fill kar rahe hain, toh aage badhne se pehle is audio ko dhyan se sun lein. Shukriya.";
-                feeLabel.innerHTML = `I agree to pay <span class="text-sm">₹499/-</span> for Profile Registration.`;
+                feeLabel.innerHTML = `I agree to pay <span class="text-blue-600">₹499/-</span> as an Appointment Fee for Profile Activation & earnings discussion.`;
+
+                // Job Service Stats
+                statsContainer.innerHTML = `
+                    <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-4">Earnings Overview</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                            <p class="text-white text-lg font-bold tracking-tight">₹60k-70k</p>
+                            <p class="text-[8px] text-slate-500 uppercase font-black">Avg. Monthly Income</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                            <p class="text-white text-lg font-bold tracking-tight">500+</p>
+                            <p class="text-[8px] text-slate-500 uppercase font-black">Active Professionals</p>
+                        </div>
+                    </div>
+                `;
 
                 dynamicArea.innerHTML = `
                     <div class="grid grid-cols-2 gap-4">
@@ -224,8 +253,8 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Current Address</label>
-                        <textarea id="address" required class="input-box h-20" placeholder="Full Address..."></textarea>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Full Address</label>
+                        <textarea id="address" required class="input-box h-20" placeholder="Enter your full current address..."></textarea>
                     </div>
                 `;
             }
@@ -235,7 +264,7 @@
         document.getElementById('masterForm').onsubmit = function(e) {
             e.preventDefault();
             if(!document.getElementById('confirm_audio').checked || !document.getElementById('pay_agree').checked) {
-                alert("Please confirm both checkboxes before submitting.");
+                alert("Please confirm both checkboxes before connecting.");
                 return;
             }
 
@@ -249,7 +278,7 @@
                 message += `*Date:* ${document.getElementById('meet_date').value}%0A*Place:* ${document.getElementById('place').value}%0A`;
             }
 
-            message += `*Fee:* ${amount}%0A*Audio:* Confirmed ✅`;
+            message += `*Fee Status:* Pending Approval%0A*Request:* Please discuss and confirm my appointment.`;
             window.open(`https://wa.me/917678125700?text=${message}`, '_blank');
         };
 
